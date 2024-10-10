@@ -18,7 +18,7 @@
         }
 
             header img {
-                max-width: 500px;
+                max-width: 400px;
                 height: auto;
             }
 
@@ -59,24 +59,31 @@
                     color: #fff;
                 }
 
-        .event-box {
+        .event-box, .durga-puja-box {
             position: fixed;
-            top: 50%;
-            right: 1px;
-            transform: translateY(-50%);
+            bottom: 10px;
+            right: 10px;
             background-color: #fff;
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             text-align: left;
+            width: 300px;
+            font-size: 14px;
         }
 
-            .event-box h3 {
+        .event-box {
+            margin-bottom: 120px; /* Platz für die zweite Box */
+        }
+
+            .event-box h3, .durga-puja-box h3 {
                 text-align: center;
+                font-size: 16px;
+                margin-bottom: 10px;
             }
 
-        .slideshow {
+        .static-image {
             width: 100%;
             max-width: 100%;
             height: 500px;
@@ -84,17 +91,10 @@
             position: relative;
         }
 
-            .slideshow img {
-                position: absolute;
+            .static-image img {
                 width: 100%;
                 height: auto;
-                opacity: 0;
-                transition: opacity 1s ease-in-out;
             }
-
-                .slideshow img.active {
-                    opacity: 1;
-                }
 
         .map-container {
             width: 60%;
@@ -137,35 +137,32 @@
         <img src="logo.png" alt="Logo">
     </header>
     <nav>
-        <a href="#" data-lang="Startseite">Startseite</a>
-        <a href="#" data-lang="Über uns">Über uns</a>
-        <a href="#" data-lang="Veranstaltungen">Veranstaltungen</a>
-        <a href="#" data-lang="Kontakt">Kontakt</a>
+        <a href="kontakt.html" data-lang="Kontakt">Kontakt</a> <!-- Link zur Kontaktseite -->
         <div class="language-selector">
             <button onclick="changeLanguage('english')">English</button>
             <button onclick="changeLanguage('bengali')">বাংলা</button>
         </div>
     </nav>
-    <div class="slideshow">
-        <img src="bild.jpg" alt="Bild 1" class="active">
-        <img src="bild2.jpeg" alt="Bild 2">
-        <img src="bild3.jpeg" alt="Bild 3">
+
+    <!-- Statisches Bild -->
+    <div class="static-image">
+        <img src="bild.png" alt="Statisches Bild">
     </div>
+
     <div class="event-box">
         <h3 data-lang="Zukünftige Events">Zukünftige Events</h3>
         <ul>
-            <li><em><strong data-lang="Pohela Boishakh/Bangla Neu Jahr">Pohela Boishakh/Bangla Neu Jahr</strong> (14.04.2024)</em></li>
-            <li><em><strong data-lang="Krishna Janmashtami">Krishna Janmashtami</strong> (26.08.2024)</em></li>
             <li><em><strong data-lang="Durga Puja/Navaratri">Durga Puja/Navaratri</strong> (09.10.2024 - 13.10.2024)</em></li>
             <li><em><strong data-lang="Kali Puja/Diwali">Kali Puja/Diwali</strong> (31.10.2024)</em></li>
         </ul>
     </div>
+
     <div class="map-container">
         <div class="address-container">
             <h3 style="text-align: center; font-size: 24px;" data-lang="Wo finden Sie unseren Tempel?">Wo finden Sie unseren Tempel?</h3>
-            <p style="text-align: center;">Habichergasse 10, 1160</p>
+            <p style="text-align: center;">Herbststraße 54, 1160 Wien</p>
         </div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.3323483313237!2d16.32772231577137!3d48.204775679232895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07e2e289d79f%3A0x92a96a528670f0ab!2sHabichergasse%2010%2C%201160!5e0!3m2!1sen!2sat!4v1646726232221!5m2!1sen!2sat" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.3323483313237!2d16.32772231577137!3d48.204775679232895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07e2e289d79f%3A0x92a96a528670f0ab!2sHerbststraße%2054%2C%201160%20Wien!5e0!3m2!1sen!2sat!4v1646726232221!5m2!1sen!2sat" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <footer>
@@ -173,37 +170,18 @@
     </footer>
 
     <script>
-        var index = 0;
-        var slides = document.querySelectorAll('.slideshow img');
-
-        setInterval(function () {
-            slides[index].classList.remove('active');
-            index = (index + 1) % slides.length;
-            slides[index].classList.add('active');
-        }, 5000);
-
         function changeLanguage(language) {
             var translations = {
                 'english': {
-                    'Startseite': 'Home',
-                    'Über uns': 'About us',
-                    'Veranstaltungen': 'Events',
                     'Kontakt': 'Contact',
                     'Zukünftige Events': 'Upcoming Events',
-                    'Pohela Boishakh/Bangla Neu Jahr': 'Pohela Boishakh/Bangla New Year',
-                    'Krishna Janmashtami': 'Krishna Janmashtami',
-                    'Durga Puja/Navaratri': 'Durga Puja/Navaratri',
-                    'Kali Puja/Diwali': 'Kali Puja/Diwali',
+                    'Durga Puja/Navaratri': 'Durga Puja',
+                    'Kali Puja/Diwali': 'Kali Puja',
                     'Wo finden Sie unseren Tempel?': 'Where to find our temple?'
                 },
                 'bengali': {
-                    'Startseite': 'হোম',
-                    'Über uns': 'আমাদের সম্পর্কে',
-                    'Veranstaltungen': 'ঘটনাসমূহ',
                     'Kontakt': 'যোগাযোগ',
                     'Zukünftige Events': 'আগামী ঘটনাসমূহ',
-                    'Pohela Boishakh/Bangla Neu Jahr': 'পহেলা বৈশাখ',
-                    'Krishna Janmashtami': 'কৃষ্ণ জন্মাষ্টমী',
                     'Durga Puja/Navaratri': 'দুর্গা পূজা',
                     'Kali Puja/Diwali': 'কালী পূজা',
                     'Wo finden Sie unseren Tempel?': 'আমাদের মন্দির কোথায় পাবেন?'
