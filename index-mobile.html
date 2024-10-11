@@ -1,0 +1,201 @@
+<!DOCTYPE html>  
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bengalisch-Hinduistischer Kulturverein - Mobil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Style */
+        header {
+            background-color: #f2f2f2;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        /* Navigation Style */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 5px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            margin: 0 5px;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .language-selector button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #555;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .language-selector button:hover {
+            background-color: #777;
+        }
+
+        /* Statisches Bild */
+        .static-image {
+            width: 100%;
+            height: 600px; /* Höhe für Smartphones */
+            background: url('bild.png') no-repeat center center;
+            background-size: cover;
+            margin: 0 auto;
+        }
+
+        /* Event Box */
+        .event-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 300px;
+            margin: 20px auto;
+            font-size: 12px;
+        }
+
+        .event-box h3 {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Map Container */
+        .map-container {
+            width: 100%; /* Breite auf 100% setzen */
+            max-width: 800px;
+            height: 300px; /* Höhe für Smartphones */
+            margin: 20px auto;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .address-container {
+            width: 100%; /* Breite auf 100% setzen */
+            max-width: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: auto;
+            text-align: center; /* Zentriere den Text */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+    </header>
+    <nav>
+        <a href="index.html" data-lang="Home">Home</a>
+        <a href="kontakt.html" data-lang="Kontakt">Kontakt</a>
+        <div class="language-selector">
+            <button onclick="changeLanguage('english')">English</button>
+            <button onclick="changeLanguage('bengali')">বাংলা</button>
+        </div>
+    </nav>
+
+    <!-- Statisches Bild -->
+    <div class="static-image"></div>
+
+    <!-- Event Box unter dem Bild -->
+    <div class="event-box">
+        <h3 data-lang="Zukünftige Events">Zukünftige Events</h3>
+        <ul>
+            <li><em><strong data-lang="Durga Puja/Navaratri">Durga Puja/Navaratri</strong> (09.10.2024 - 13.10.2024)</em></li>
+            <li><em><strong data-lang="Kali Puja/Diwali">Kali Puja/Diwali</strong> (31.10.2024)</em></li>
+        </ul>
+    </div>
+
+    <div class="map-container">
+        <div class="address-container">
+            <h3 data-lang="Wo finden Sie unseren Tempel?">Wo finden Sie unseren Tempel?</h3>
+            <p>Herbststraße 54, 1160 Wien</p>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.3323483313237!2d16.32772231577137!3d48.204775679232895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d07e2e289d79f%3A0x92a96a528670f0ab!2sHerbststraße%2054%2C%201160%20Wien!5e0!3m2!1sen!2sat!4v1646726232221!5m2!1sen!2sat" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <footer>
+        @2024 BHÖ Kulturverein <br> made by Oishik Roy
+    </footer>
+
+    <script>
+        function changeLanguage(language) {
+            var translations = {
+                'english': {
+                    'Home': 'Home',
+                    'Kontakt': 'Contact',
+                    'Zukünftige Events': 'Upcoming Events',
+                    'Durga Puja/Navaratri': 'Durga Puja',
+                    'Kali Puja/Diwali': 'Kali Puja',
+                    'Wo finden Sie unseren Tempel?': 'Where to find our temple?'
+                },
+                'bengali': {
+                    'Home': 'হোম',
+                    'Kontakt': 'যোগাযোগ',
+                    'Zukünftige Events': 'আগামী ঘটনাসমূহ',
+                    'Durga Puja/Navaratri': 'দুর্গা পূজা',
+                    'Kali Puja/Diwali': 'কালী পূজা',
+                    'Wo finden Sie unseren Tempel?': 'আমাদের মন্দির কোথায় পাবেন?'
+                }
+            };
+
+            var elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(function (element) {
+                var key = element.getAttribute('data-lang');
+                if (translations[language] && translations[language][key]) {
+                    element.innerText = translations[language][key];
+                }
+            });
+
+            console.log("Sprache geändert auf: " + language);
+        }
+    </script>
+</body>
+</html>
